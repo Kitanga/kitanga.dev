@@ -1,0 +1,31 @@
+<svg width="175" height="201" viewBox="0 0 175 125" fill="none" xmlns="http://www.w3.org/2000/svg"
+    id="svg5" class="svelte-1w21k9w">
+    <rect x="12.0806" y="50.4865" width="17" height="17" rx="2"
+        transform="rotate(43 12.0806 50.4865)" fill="black"></rect>
+    <rect x="37.0806" y="25.4865" width="17" height="17" rx="2"
+        transform="rotate(43 37.0806 25.4865)" fill="black"></rect>
+    <rect x="62.0806" y="0.486511" width="17" height="17" rx="2"
+        transform="rotate(43 62.0806 0.486511)" fill="black"></rect>
+    <rect x="112.081" y="0.486511" width="17" height="17" rx="2"
+        transform="rotate(43 112.081 0.486511)" fill="black"></rect>
+    <rect x="137.081" y="25.4865" width="17" height="17" rx="2"
+        transform="rotate(43 137.081 25.4865)" fill="black"></rect>
+    <rect x="162.081" y="50.4865" width="17" height="17" rx="2"
+        transform="rotate(43 162.081 50.4865)" fill="black"></rect>
+    <rect x="137.081" y="75.4865" width="17" height="17" rx="2"
+        transform="rotate(43 137.081 75.4865)" fill="black"></rect>
+    <rect x="112.081" y="100.487" width="17" height="17" rx="2"
+        transform="rotate(43 112.081 100.487)" fill="black"></rect>
+    <rect x="62.0806" y="100.487" width="17" height="17" rx="2"
+        transform="rotate(43 62.0806 100.487)" fill="black"></rect>
+    <rect x="37.0806" y="75.4865" width="17" height="17" rx="2"
+        transform="rotate(43 37.0806 75.4865)" fill="black"></rect>
+    <rect class="center" x="62.0806" y="50.4865" width="17" height="17" rx="2"
+        transform="rotate(43 62.0806 50.4865)" fill="black"></rect>
+    <rect class="center" x="87.0806" y="25.4865" width="17" height="17" rx="2"
+        transform="rotate(43 87.0806 25.4865)" fill="black"></rect>
+    <rect class="center" x="112.081" y="50.4865" width="17" height="17" rx="2"
+        transform="rotate(43 112.081 50.4865)" fill="black"></rect>
+    <rect class="center" x="87.0806" y="75.4865" width="17" height="17" rx="2"
+        transform="rotate(43 87.0806 75.4865)" fill="black"></rect>
+</svg>
