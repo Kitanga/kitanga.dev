@@ -64,7 +64,6 @@ const App: Component = () => {
       translateY: pos.y - 12.5,
       translateZ: 0,
       scale: isHovered() ? 2.5 : 1,
-      // easing: 'easeInElastic',
       duration: 340,
     });
   };
