@@ -8,6 +8,10 @@
     ],
     "rewrites": [
       {
+        "source": "/kitanga-site-preview.png",
+        "destination": "/kitanga-site-preview.png"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
