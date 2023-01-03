@@ -90,7 +90,7 @@ const App: Component = () => {
           transform: `translateX(${cursorPos().x - 1.5}px) translateY(${cursorPos().y - 1.5}px) translateZ(0)`,
         }}></div>
       <svg id="cursor" width="6.8mm" height="6.8mm" version="1.1" viewBox="0 0 6.8 6.8" xmlns="http://www.w3.org/2000/svg" style={{
-        transform: `translateX(${cursorPos().x - 1.5}px) translateY(${cursorPos().y - 1.5}px) translateZ(0)`,
+        // transform: `translateX(${cursorPos().x - 12.5}px) translateY(${cursorPos().y - 12.5}px) translateZ(0)`,
         opacity: isHovered() ? '0.5' : '1',
         "mix-blend-mode": `color-burn`,
         "z-index": 10000,
