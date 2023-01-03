@@ -11,7 +11,9 @@
   cursor: none;
 }
 
-.faded {}
+.faded {
+  border: none;
+}
 
 .header {
   padding-left: 10%;
