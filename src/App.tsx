@@ -111,7 +111,7 @@ const App: Component = () => {
           <span>Kitanga</span>&nbsp;
           <span>Nday</span>
         </h1>
-        <h2 class={styles.subtext}><span>Senior Fullstack Web Developer</span></h2>
+        <h2 class={styles.subtext}><span>Senior Fullstack Developer</span></h2>
         <div class={`${styles.subtext} ${styles.links}`}>
 
           {links().map((linkDef, ix, arr) => {
