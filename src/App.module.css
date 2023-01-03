@@ -96,6 +96,19 @@
   opacity: 1;
 }
 
+.dot {
+  width: 3px;
+  height: 3px;
+  background-color: #1a1a1a;
+  border-radius: 50%;
+  font-size: 1px;
+  color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
 @media only screen and (max-width: 768px) {
   .App {
     background-image: none;

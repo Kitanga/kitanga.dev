@@ -1,9 +1,9 @@
 import { Component, createSignal } from 'solid-js';
-import { throttle, delay } from 'lodash'; 7
 import LinkedinLogo from './assets/linkedin-logo-2.png';
 import StackoverflowLogo from './assets/stackoverflow-logo-2.png';
 import styles from './App.module.css';
 import AppLink from './commons/components/AppLink.jsx';
+import anime from 'animejs/lib/anime.es.js';
 
 const App: Component = () => {
   const [links] = createSignal([
@@ -39,7 +39,7 @@ const App: Component = () => {
 
   const [isHovered, setIsHovered] = createSignal(false);
   const [shouldFade, setShouldFade] = createSignal(false);
-  const [mousePos, setMousePos] = createSignal({
+  const [cursorPos, setCursorPos] = createSignal({
     x: -100,
     y: -100,
   });
@@ -49,42 +49,61 @@ const App: Component = () => {
     // @ts-ignore
     (navigator.msMaxTouchPoints > 0));
 
-  if (!isTouchDevice) {
-    window.onmousemove = ({ clientX, clientY }) => {
-      delay(() => {
-        const pos = { x: clientX, y: clientY };
-        setMousePos(pos)
-        console.log('pos:', pos)
-      }, 34)
-    };
-  }
+  let prevAnim: anime.AnimeInstance | undefined;
+  window.onmousemove = ({ clientX, clientY }) => {
+    const pos = { x: clientX, y: clientY };
+    setCursorPos(pos)
 
-  // const mPos = mousePos();
+    if (prevAnim) {
+      anime.remove(prevAnim)
+    }
+
+    prevAnim = anime({
+      targets: '#cursor',
+      translateX: pos.x - 12.5,
+      translateY: pos.y - 12.5,
+      translateZ: 0,
+      scale: isHovered() ? 2.5 : 1,
+      duration: 700,
+    });
+  };
+
+  window.ontouchend = () => {
+
+    if (prevAnim) {
+      anime.remove(prevAnim)
+    }
+
+    ([document.getElementById('cursor'), document.getElementById('dot')] as HTMLDivElement[]).forEach((ele: HTMLDivElement | null) => {
+      if (ele) {
+        ele.style.display = 'none';
+      }
+    })
+  }
 
   return (
     <div class={[styles.App, shouldFade() ? styles.faded : ''].join(' ')}>
+      <div
+        id="dot"
+        class={styles.dot}
+        style={{
+          transform: `translateX(${cursorPos().x - 1.5}px) translateY(${cursorPos().y - 1.5}px) translateZ(0)`,
+        }}></div>
       <svg id="cursor" width="6.8mm" height="6.8mm" version="1.1" viewBox="0 0 6.8 6.8" xmlns="http://www.w3.org/2000/svg" style={{
-        translate: `${mousePos().x - 12.5}px ${mousePos().y - 12.5}px 0`,
-        scale: `${isHovered() ? 2.5 : 1}`,
-        // scale: isHovered() ? '2.5' : '1',
+        transform: `translateX(${cursorPos().x - 1.5}px) translateY(${cursorPos().y - 1.5}px) translateZ(0)`,
         opacity: isHovered() ? '0.5' : '1',
-        "mix-blend-mode": `${isHovered() ? 'color-burn' : 'normal'}`,
+        "mix-blend-mode": `color-burn`,
         "z-index": 10000,
         position: 'fixed',
         "pointer-events": 'none',
-        // transition: 'width .034s, height .034s',
         display: 'block',
-        transition: 'scale .034s',
-        // width: isHovered() ? '52px' : '25px',
-        // height: isHovered() ? '52px' : '25px',
-        // top: `${mousePos().y - 12.5}px`,
-        // left: `${mousePos().x - 12.5}px`,
         top: 0,
         left: 0,
       }}>
-        {/* <g transform="translate(-129.47 -169.66)"> */}
-        <circle cx="3.3966" cy="3.4048" r="2.5135" fill="#1a1a1a" stroke-width=".26458" />
-        {/* </g> */}
+        <circle cx="3.3966" cy="3.4048" r="2.5135" style={{
+          fill: `${isHovered() ? '#1a1a1a' : 'transparent'}`,
+          transition: 'fill .14s',
+        }} stroke='#1a1a1a' stroke-width=".26458" />
       </svg>
       {/* scale(${isHovered() ? 2.5 : 1}) */}
       <header class={styles.header}>
